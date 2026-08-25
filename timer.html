@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <title>Timer</title>
+  <style>
+  
+  body{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 10px;
+    background-color: #5C305E;
+  }
+  
+  .header{
+    display: flex;
+    gap: 5px;
+    margin-left: 10px;
+  }
+  
+  .headR{
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+  }
+  
+  .batang{
+    position: relative;
+    top: 12px;
+    margin: 0px;
+    height: 50px;
+    width: 1px;
+    background-color: rgb(255, 255, 255, 0.4);
+  }
+  
+  .judul{
+    color: white;
+    text-shadow: 0px 0px 3px black;
+    font-size: 32pt;
+  }
+  
+  .content{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    align-items: center;
+    background-color: #7C437D;
+    width: 90%;
+    padding: 10px;
+    gap: 5px;
+  }
+  
+  .foot{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    background-color: #7C437D;
+    width: 90%;
+    height: 100px;
+    padding: 10px;
+    align-self: center;
+  }
+  
+  #time{
+   color: white;
+   text-shadow: 0 0 3px black;
+    border-radius: 0.4rem;
+    margin: 0px;
+    height: 60px;
+    width: 100px;
+    background-color: #5C305E;
+    box-shadow: 0 0 3px 0 black inset;
+    text-align: center;
+  }
+  
+  #text{
+    margin: 0px;
+    color: whitesmoke;
+    text-shadow: 0 0 3px black;
+    height: 60px;
+    width: 150px;
+    border-radius: 0.4rem;
+    background-color: #5C305E;
+    box-shadow: 0 0 3px 0 black inset;
+    text-align: center;
+  }
+  
+  #btn8, #btn30{
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    border: 2px rgb(0, 0 , 0, 0.4) solid;
+    font-size: 24pt;
+  }
+  
+  #btn8:active, #btn30:active{
+    background-color: lightgrey;
+  }
+  
+  #input{
+    height: 50px;
+    width: 90%;
+    padding: 5px;
+    border-radius: 0.4rem;
+    margin: 0%;
+    border: none;
+    font-size: 20pt;
+  }
+  
+  #input::placeholder{
+    font-size: 18pt;
+  }
+  
+  #input:focus{
+    outline: blue;
+  }
+  
+  #btn{
+    height: 100px;
+    width: 100%;
+    font-size: 32pt;
+    margin: 0%;
+    border: none;
+    border-radius: 0.3rem;
+    background-size: 200% auto;
+    background-image: linear-gradient(90deg, rgba(0, 255, 255, 1) 50%, rgba(100, 116, 255, 1) 50%);
+    transition: all 0.05s ease-in-out;
+  }
+  
+  @keyframes kedip {
+    0% {outline: 3px solid rgb(255, 255, 255, 1);}
+    30$ {outline: 3px solid rgb(255, 255, 255, 0.4);}
+    100% {outline: 3px solid rgb(255, 255, 255, 0);}
+  }
+  
+  #btn:active{
+    /*background-color: grey;*/
+    background-position: right center;
+    animation: kedip 0.3s;
+  }
+  
+  #text{
+    font-size: 34pt;
+    margin-top: 0%;
+  }
+  
+  #time{
+    font-size: 34pt;
+    margin-bottom: 0%;
+  }
+  
+  .continue{
+    height: 40px;
+    width: 100px;
+    border-radius: 0.3rem;
+    border: none;
+    background-color: #D15454;
+    color: #524587;
+    box-shadow: 0 0 5px 0 black inset;
+    text-shadow: 0 0px 0.7px black;
+    transition: all 0.5s ease-in-out, background-color 0.3s ease, box-shadow 4s ease;
+  }
+  
+  .continue.aktif{
+    width: 95%;
+    text-shadow: none;
+    background-color: #66D154;
+    box-shadow: 0 0 5px 0 black;
+  }
+  
+  #reset{
+    height: 40px;
+    width: 70px;
+    font-size: 18pt;
+    border: none;
+    border-radius: 0.4rem;
+    background-color: red;
+    
+  }
+  
+  #reset:active{
+    opacity: 0.5;
+  }
+  
+  
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="batang"></div>
+    <h1 class="judul">Timer°•.</h1>
+    <div class="headR">
+      <button id="btn8">8s</button>
+      <button id="btn30">30s</button>
+    </div>
+  </div>
+  <div class="content">
+    <button id="continue" class="continue">Continue 》</button>
+    <input id="input" placeholder="masukkan waktu (detik)">
+    <button class="btn" id="btn" onClick="hitung()">mulai</button>
+    <button id="reset" onClick="reset()">reset</button>
+  </div>
+  <div class="foot">
+    <p id="time"></p>
+    <p id="text"></p>
+  </div>
+  
+  <script>
+  
+  const time = document.getElementById("time")
+  const text = document.getElementById("text")
+  const btnContinue = document.getElementById("continue")
+  const input = document.getElementById("input")
+  const btn8 = document.getElementById("btn8")
+  const btn30 = document.getElementById("btn30")
+  const btnReset = document.getElementById("reset")
+  
+  
+  let waktu = 1
+  let isPlaying = false
+  let interval
+  
+  time.textContent = 0
+  
+  text.textContent = "timer"
+  
+  async function hitung(){
+    if (isPlaying) {
+      text.textContent = "sabar"
+      return
+    }
+    isPlaying = true
+    
+    let Waktu = Number(input.value)
+    
+    waktu = 1
+    
+    text.textContent = ""
+    
+    interval = setInterval(()=>{
+      
+      time.textContent = waktu + "s"
+      waktu++
+      
+      text.textContent = "..."
+      
+      if(waktu > Waktu){
+        if(btnContinue.classList.contains("aktif")){
+          text.textContent = "continue"
+        }else if(reset){
+          clearInterval(interval)
+          text.textContent = "selesai"
+          
+          isPlaying = false
+          
+          input.value = ""
+        } else {
+          clearInterval(interval)
+          text.textContent = "selesai"
+          
+          isPlaying = false
+          
+          input.value = ""
+        }
+        
+        waktu = 0
+      }
+    },1000)
+  }
+  
+  function reset(){
+    clearInterval(interval)
+    time.textContent = 0
+    isPlaying = false
+  }
+    
+    btn8.addEventListener("click", function(){
+      input.value = Number(8)
+      
+    })
+    btn30.addEventListener("click", function(){
+      input.value = Number(30)
+      
+    })
+  
+  btnContinue.addEventListener("click", function(){
+    btnContinue.classList.toggle("aktif")
+    
+  })
+  
+  
+  </script>
+</body>
+</html>
