@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch</title>
+
+    <style>
+
+        body{
+            background-color: #444;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1{
+            margin-left: 20px;
+            color: #e6c8c8;
+            text-shadow: 0 0 15px rgb(77, 30, 30);
+        }
+
+        .container{
+            height: 400px;
+            width: 80%;
+            background-color: #4d4848;
+            align-self: center;
+            border-radius: 0.5rem;
+            box-shadow: 0 0 15px 0px rgba(0, 0, 0, 0.5);
+            margin-top: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .btn, .stop{
+            height: 60px;
+            width: 100px;
+            border: none;
+            border-radius: 0.3rem;
+            box-shadow: 0px 3px 5.2px 0px rgba(0, 0, 0, 0.507);
+            cursor: pointer;
+        }
+
+        .btn:active, .stop:active{
+            box-shadow: 0 0 3px 0px white;
+            background-color: #ffffff;
+        }
+
+        .waktu{
+            height: 60px;
+            width: 80%;
+            background-color: #8d7c7c;
+            border-radius: 5rem;
+            box-shadow: inset 0 0 25px black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .detik, #waktu{
+            color: aqua;
+            text-shadow: 0 0px 5px rgb(151, 255, 255);
+            font-size: 24pt;
+            
+        }
+
+        #textHistory{
+            color: #e6c8c8;
+            margin-left: 50px;
+            margin-bottom: 0;
+        }
+
+        .kotakRiwayat{
+            height: 400px;
+            width: 30%;
+            background-color: #8d7c7c7c;
+            margin: 15px;
+            margin-left: 50px;
+            padding: 10px;
+            overflow: auto;
+        }
+
+        .angkaRiwayat{
+            color: #e6c8c8;
+        }
+
+        #list{
+            display: flex;
+            flex-direction: column-reverse;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Stopwatch</h1>
+    <div class="container">
+        <button class="btn" id="btn">mulai</button>
+        <div class="waktu" id="waktu"></div>
+        <button class="stop" id="btnStop">Stop</button>
+    </div>
+    <p id="textHistory">HISTORY</p>
+    <div class="kotakRiwayat" id="kotakRiwayat">
+        <ul id="list"></ul>
+    </div>
+
+    <script>
+
+        const btn = document.getElementById("btn")
+        const btnStop = document.getElementById("btnStop")
+        const waktu = document.getElementById("waktu")
+        const riwayat = document.getElementById("list")
+
+        let time = 0
+        let isPlaying = false
+        let interval
+
+        const history = []
+        
+        btn.addEventListener("click", function(){
+            if (isPlaying) {
+                return
+            }
+            
+            isPlaying = true
+            
+            waktu.textContent = 0
+
+            
+            interval = setInterval(() => {
+                waktu.textContent = ""
+                
+                time++
+                
+                const detik = document.createElement("p")
+    
+                detik.className = "detik"
+    
+                detik.textContent = time
+    
+                waktu.appendChild(detik)
+
+                if (!isPlaying) {
+                    detik.textContent = ""
+                }
+
+                // console.log(time)
+            }, 1000);
+        })
+        
+        btnStop.addEventListener("click", function(){
+            isPlaying = false
+            clearInterval(interval)
+
+            history.push(time)
+
+            riwayat.textContent = ""
+            waktu.innerHTML = "0"
+
+
+            history.forEach(element => {
+                const riwayatWaktu = document.createElement("li")
+
+                riwayatWaktu.className = "angkaRiwayat"
+    
+                riwayatWaktu.textContent = element + "s"
+    
+                riwayat.appendChild(riwayatWaktu)
+                
+            });
+
+
+            console.log(history)
+
+            time = 0
+        })
+        
+    </script>
+</body>
+</html>
