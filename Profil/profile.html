@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>profile</title>
+  <style>
+  body{
+    margin: 0%;
+    padding: 0%;
+    height: 100vh;
+  }
+  
+  header{
+    background-image: url("./Pp.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+    width: 100%;
+    margin: 0px;
+    position: relative;
+    top: -22px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(100, 23, 0, 0.2);
+    z-index: -9999;
+  }
+  
+  .pp{
+    background-image: url("./pp.png");
+    background-size: cover;
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    //background: #ffdea8;
+    //background: linear-gradient(135deg, rgba(255, 222, 168, 1) 0%, rgba(255, 130, 157, 1) 100%);
+    outline: 3px rgb(128, 74, 0, 0.5) solid;
+    position: relative;
+    top: -50px;
+    margin: 0%;
+    margin-left: 5px;
+   
+  }
+  
+  nav{
+    background-color:  #16213e;
+    margin: 0%;
+    width: 105%;
+    height: 60px;
+    position: relative;
+    top: -60px;
+    color: rgb(255, 213, 213, 0.6);
+    display: flex;
+    box-shadow: 0 0 5px 0 black;
+  }
+  
+  nav-right{
+    margin-left: auto;
+    align-self: center;
+    margin-right: 10px;
+  }
+  
+  #btn-menu{
+    background-color: rgb(45, 45, 75, 1);
+    border: none;
+    border-radius: 0.4rem;
+    height: 30px;
+    color: rgb(255, 213, 213, 0.6);
+  }
+  
+  content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #2d2438;
+    height: 100vh;
+    width: 105%;
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+    top: -60px;
+    color: rgb(23,23,23, 0.4);
+    z-index: -1;
+  }
+  
+  .container{
+    display: grid;
+    height: 100px;
+    width: 50px;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    background-color: gray;
+  }
+  
+  footer{
+    background-color: #1e1728;
+    margin: 0%;
+    height: 80px;
+    width: 105%;
+    position: relative;
+    top: -81.5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 5px 0 black;
+    z-index: 9999;
+  }
+  
+  .Ftext{
+    color: beige;
+  }
+  
+  </style>
+</head>
+<body>
+  <header>
+    
+  </header>
+  <nav>
+    <div class="pp"></div>
+    <h1 class="nama">Dap_a06</h1>
+    <nav-right>
+      <button id="btn-menu">menu</button>
+    </nav-right>
+  </nav>
+  <content>
+    <div class="container">
+      
+    </div>
+    <p>Something Wrong?</p>
+  </content>
+  <footer>
+    <h1 class="Ftext">bye world</h1>
+  </footer>
+</body>
+</html>
