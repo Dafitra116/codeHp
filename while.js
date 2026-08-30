@@ -15,6 +15,5 @@ btn.addEventListener("click", function(){
         
         box.appendChild(p)
     }
-    count.textContent = i
+    count.textContent = `count: ${i}`
 })
-
