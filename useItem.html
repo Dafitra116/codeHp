@@ -5,8 +5,11 @@
   <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
   <title>Itemsss</title>
   <style>
+    body{
+      background-color: rgba(42, 42, 43, 0.603);
+    }
   .boxStore, .boxInventory{
-    border: 2px black solid;
+    border: 3px black solid;
     margin: 5px;
     padding: 5px;
   }
@@ -15,7 +18,12 @@
     gap: 5px;
     justify-content: space-evenly;
   }
-  .boxItem, .itemInventory{
+  .itemStore, .itemInventory{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .boxItem{
     border: 1px solid black;
     padding: 10px;
   }
@@ -25,30 +33,39 @@
   <h1>
     item
   </h1>
+  <p id="balance"></p>
   <div class="boxStore" id="boxStore">
     <p>Store</p>
     <div class="containerItem">
       <div class="itemStore" id="itemStore1">
         <div class="boxItem">
-        <p>item 1</p>
+          <p>item 1</p>
         </div>
-        <p id="jumlahItem1">2</p>
+        <p id="hargaItem1">2 coin</p>
       </div>
       <div class="itemStore" id="itemStore2">
-        <p>item 2</p>
-        <p id="jumlahItem2">5</p>
+        <div class="boxItem">
+          <p>item 2</p>
+        </div>
+        <p id="hargaItem2">5 coin</p>
       </div>
       <div class="itemStore" id="itemStore3">
-        <p>item 3</p>
-        <p id="jumlahItem3">7</p>
+        <div class="boxItem">
+          <p>item 3</p>
+        </div>
+        <p id="hargaItem3">6 coin</p>
       </div>
       <div class="itemStore" id="itemStore4">
-        <p>item 4</p>
-        <p id="jumlahItem4">6</p>
+        <div class="boxItem">
+          <p>item 4</p>
+        </div>
+        <p id="hargaItem4">8 coin</p>
       </div>
       <div class="itemStore" id="itemStore5">
-        <p>item 5</p>
-        <p id="jumlahItem5">3</p>
+        <div class="boxItem">
+          <p>item 5</p>
+        </div>
+        <p id="hargaItem5">3 coin</p>
       </div>
     </div>
   </div>
@@ -56,12 +73,38 @@
   <div class="boxInventory" id="boxInventory">
     <p>yor Inventory</p>
     <div class="containerItem">
-      <div class="itemInventory" id="itemInventory1"><p>item 1</p></div>
-      <div class="itemInventory" id="itemInventory2"><p>item 2</p></div>
-      <div class="itemInventory" id="itemInventory3"><p>item 3</p></div>
-      <div class="itemInventory" id="itemInventory4"><p>item 4</p></div>
-      <div class="itemInventory" id="itemInventory5"><p>item 5</p></div>
+      <div class="itemInventory" id="itemInventory1">
+        <div class="boxItem">
+          <p>item 1</p>
+        </div>
+        <p id="jumlahItem1">3</p>
+      </div>
+      <div class="itemInventory" id="itemInventory2">
+        <div class="boxItem">
+          <p>item 2</p>
+        </div>
+        <p id="jumlahItem2">7</p>
+      </div>
+      <div class="itemInventory" id="itemInventory3">
+        <div class="boxItem">
+          <p>item 3</p>
+        </div>
+        <p id="jumlahItem3">6</p>
+      </div>
+      <div class="itemInventory" id="itemInventory4">
+        <div class="boxItem">
+          <p>item 4</p>
+        </div>
+        <p id="jumlahItem4">9</p>
+      </div>
+      <div class="itemInventory" id="itemInventory5">
+        <div class="boxItem">
+          <p>item 5</p>
+        </div>
+        <p id="jumlahItem5">2</p>
+      </div>
     </div>
   </div>
+  <script src="useItem.js"></script>
 </body>
 </html>
