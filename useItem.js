@@ -4,7 +4,55 @@ const containerItem = document.getElementById("containerItem")
 
 const containerInventory = document.getElementById("containerInventory")
 
+const tambahCoin = document.getElementById("tambahCoin")
+const tambahMaksCoin = document.getElementById("tambahMaksCoin")
+const coins = [0, 1, 5, 8, 10, 15, 45, 50, 70, 100]
+const maksCoins = [1, 2, 3]
+let maksCoin = 100
 
+tambahMaksCoin.addEventListener("click", function (){
+    const randomIndex = Math.floor(Math.random() * maksCoins.length)
+    const randomNilai = maksCoins[randomIndex]
+    maksCoin += randomNilai
+    balance.textContent = `Coin: ${coin}/${maksCoin}`
+    
+    const maksCoinPlus = document.getElementById("maksCoinPlus")
+    maksCoinPlus.textContent = `+${randomNilai}`
+    
+    maksCoinPlus.style.position = "absolute"
+    maksCoinPlus.style.margin = "0px"
+    maksCoinPlus.style.top = "60px"
+    maksCoinPlus.style.left = "65px"
+    
+    setTimeout(() => {
+        maksCoinPlus.textContent = ""
+    },500)
+})
+
+tambahCoin.addEventListener("click", function (){
+    if (coin >= maksCoin){
+        alert(`koin maks!(${maksCoin} koin)`)
+    } else {
+        const randomIndex = Math.floor(Math.random() * coins.length)
+        const randomNilai = coins[randomIndex]
+        coin += randomNilai
+        
+        const coinPlus = document.getElementById("coinPlus")
+        coinPlus.textContent = `+${randomNilai}`
+        
+        coinPlus.style.position = "absolute"
+        coinPlus.style.margin = "0px"
+        coinPlus.style.top = "60px"
+        coinPlus.style.left = "38px"
+        
+        setTimeout(() => {
+            coinPlus.textContent = ""
+        },500)
+        balance.textContent = `Coin: ${coin}/${maksCoin}`
+        console.log(coin)
+        console.log("+" + randomNilai)
+    }
+})
 
 const items = [
     {id: 1, nama: "item 1", harga: 2},
@@ -25,7 +73,7 @@ if(inventories.length === 0){
 
 let coin = 100
 
-balance.textContent = `Coin: ${coin}`
+balance.textContent = `Coin: ${coin}/${maksCoin}`
 
 items.map((item) => {
     
@@ -51,7 +99,7 @@ items.map((item) => {
     btn.addEventListener("click", function(){
         if(coin >= item.harga){
             coin -= item.harga
-            balance.textContent = `Coin: ${coin}`
+            balance.textContent = `Coin: ${coin}/${maksCoin}`
 
             inventories.push(item)
 
@@ -78,6 +126,7 @@ items.map((item) => {
                 itemIventory.appendChild(boxItem)
                 boxItem.appendChild(i)
                 itemIventory.appendChild(jumlahItem)
+                
 
             })
             
@@ -91,4 +140,4 @@ items.map((item) => {
 })
 
 
-console.log("halo")
+console.log("last line code")
