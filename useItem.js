@@ -1,14 +1,16 @@
 const balance = document.getElementById("balance")
-
 const containerItem = document.getElementById("containerItem")
-
 const containerInventory = document.getElementById("containerInventory")
-
 const tambahCoin = document.getElementById("tambahCoin")
 const tambahMaksCoin = document.getElementById("tambahMaksCoin")
+
 const coins = [0, 1, 5, 8, 10, 15, 45, 50, 70, 100]
+let coin = 100
+
 const maksCoins = [1, 2, 3]
 let maksCoin = 100
+
+balance.textContent = `Coin: ${coin}/${maksCoin}`
 
 tambahMaksCoin.addEventListener("click", function (){
     const randomIndex = Math.floor(Math.random() * maksCoins.length)
@@ -71,11 +73,7 @@ if(inventories.length === 0){
     containerInventory.appendChild(text)
 }
 
-let coin = 100
-
-balance.textContent = `Coin: ${coin}/${maksCoin}`
-
-items.map((item) => {
+items.forEach((item) => {
     
     const itemStore = document.createElement("div")
     const boxItem = document.createElement("div")
@@ -126,18 +124,11 @@ items.map((item) => {
                 itemIventory.appendChild(boxItem)
                 boxItem.appendChild(i)
                 itemIventory.appendChild(jumlahItem)
-                
-
             })
-            
-            
-            
         } else {
             alert("coin ga cukup")
         }
     })
-    
 })
-
 
 console.log("last line code")
