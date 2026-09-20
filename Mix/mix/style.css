@@ -1,0 +1,97 @@
+body{
+    background-color: rgba(216, 204, 160, 0.836);
+}
+
+#list{
+    height: 160px;
+    width: 100%;
+    border: 2px solid brown;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.container{
+    height: 400px;
+    width: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: auto;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 5px;
+    border: 2px solid brown;
+    border-radius: 0.5rem;
+    background-color: rgba(134, 88, 36, 0.384);
+    box-shadow: 0 0 5px 0 rgb(87, 50, 16);
+    margin-bottom: 15px;
+}
+
+#judulEdit{
+    color: rgb(112, 59, 21);
+}
+.containerEdit{
+    height: fit-content;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    /* flex-wrap: wrap; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    gap: 5px;
+    border: 2px solid brown;
+    border-radius: 0.5rem;
+    background-color: rgba(134, 88, 36, 0.384);
+    box-shadow: 0 0 5px 0 rgb(87, 50, 16);
+    margin-bottom: 15px;
+}
+
+.input, .inputId{
+    border-radius: 0.3rem;
+    border: none;
+    box-shadow: 0 4px 3px 0px rgba(0, 0, 0, 0.13);
+    padding: 5px;
+}
+
+.btnHapus, .btnInput{
+    border-radius: 0.3rem;
+    border: 3px solid rgb(167, 84, 29);
+    padding: 5px;
+}
+
+.items{
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    width: fit-content;
+    padding: 3px;
+    border-radius: 0.2rem;
+    background-color: rgba(80, 36, 6, 0.459);
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow:0 0 10px 0 rgb(255, 0, 0);
+}
+
+p{
+    margin: 0;
+    color: rgb(255, 255, 255);
+    text-shadow: 0  0px 2px black;
+}
+
+.textList{
+    /* color: aliceblue; */
+    text-shadow: 0  0px 0px black;
+}
+
+#list{
+    color: black;
+}
+
+.boxItem{
+    background-color: aqua;
+    height: 50px;
+    width: 50px;
+}
