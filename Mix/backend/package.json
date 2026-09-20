@@ -8,10 +8,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "Server.js",
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "node node_modules/nodemon/bin/nodemon.js Server.js"
   },
   "keywords": [],
   "author": "",
